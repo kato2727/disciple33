@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>33기 제자훈련 일정표 (2026)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --color-bg: #f8fafc;
+      --color-surface: #ffffff;
+      --color-primary: #1a365d;
+      --color-primary-dark: #0f172a;
+      --color-gold: #d4af37;
+      --color-muted: #64748b;
+      --color-border-subtle: rgba(15, 23, 42, 0.06);
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+      --shadow-soft: 0 14px 40px rgba(15, 23, 42, 0.20);
+      --shadow-card: 0 10px 30px rgba(15, 23, 42, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background-color: var(--color-bg);
+      color: var(--color-primary-dark);
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 18px 16px 40px;
+    }
+
+    .header {
+      background: linear-gradient(140deg, #0b1220, var(--color-primary));
+      border-radius: 0 0 28px 28px;
+      padding: 22px 20px 26px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.35);
+      margin: -18px -16px 26px;
+      color: #e5e7eb;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .header-inner {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .title-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.45);
+      border: 1px solid rgba(226, 232, 240, 0.16);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+      margin-bottom: 8px;
+    }
+
+    .title-badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: conic-gradient(
+        from 140deg,
+        #facc15,
+        var(--color-gold),
+        #eab308,
+        #facc15
+      );
+      box-shadow: 0 0 0 4px rgba(234, 179, 8, 0.25);
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: -0.04em;
+      margin: 0 0 4px;
+      color: #f9fafb;
+    }
+
+    .sub-title {
+      font-size: 14px;
+      font-weight: 400;
+      color: #cbd5f5;
+      margin: 0;
+    }
+
+    .sub-title strong {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .header-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 14px;
+      font-size: 11px;
+      color: #cbd5f5;
+    }
+
+    .header-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .header-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.9);
+    }
+
+    .header-year {
+      font-weight: 500;
+      color: #e5e7eb;
+    }
+
+    .content-spacing {
+      margin-top: 10px;
+    }
+
+    /* 이번 주 과제 카드 */
+    .notice-box {
+      background:
+        radial-gradient(circle at 0% 0%, rgba(212, 175, 55, 0.12), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(15, 23, 42, 0.08), transparent 55%),
+        linear-gradient(135deg, #f9fafb, #e5e7eb);
+      border-radius: var(--radius-xl);
+      padding: 20px 18px 18px;
+      margin-bottom: 22px;
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.16);
+      color: #0f172a;
+      border: 1px solid rgba(148, 163, 184, 0.65);
+    }
+
+    .notice-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      gap: 10px;
+    }
+
+    .notice-title {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #020617;
+    }
+
+    .notice-chip {
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(248, 250, 252, 0.32);
+      background: rgba(15, 23, 42, 0.35);
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: #e5e7eb;
+    }
+
+    .today-pill {
+      font-size: 13px;
+      border-radius: 999px;
+      padding: 5px 10px;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      color: #e5e7eb;
+      white-space: nowrap;
+    }
+
+    .notice-content {
+      font-size: 17px;
+      line-height: 1.8;
+      letter-spacing: -0.02em;
+      color: #111827;
+    }
+
+    .notice-content strong {
+      color: #1f2937;
+      font-weight: 600;
+    }
+
+    .notice-empty {
+      font-size: 17px;
+      line-height: 1.8;
+      color: #4b5563;
+    }
+
+    .small-info {
+      font-size: 13px;
+      margin-top: 8px;
+      color: #4b5563;
+      opacity: 0.95;
+    }
+
+    .table-title {
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      margin: 4px 2px 10px;
+      color: var(--color-primary-dark);
+    }
+
+    .table-title span {
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+
+    .month-section {
+      margin-top: 18px;
+    }
+
+    .month-label {
+      font-size: 19px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin: 0 2px 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .month-label::before {
+      content: "";
+      width: 26px;
+      height: 1px;
+      border-radius: 999px;
+      background: linear-gradient(
+        90deg,
+        rgba(148, 163, 184, 0.8),
+        rgba(148, 163, 184, 0.1)
+      );
+    }
+
+    .schedule-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .schedule-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 13px 14px 12px;
+      border-radius: var(--radius-lg);
+      background: var(--color-surface);
+      box-shadow: var(--shadow-card);
+      border: 1px solid var(--color-border-subtle);
+    }
+
+    .schedule-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .schedule-date {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--color-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .schedule-badge {
+      font-size: 12px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.04);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--color-muted);
+    }
+
+    .book-col {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-muted);
+    }
+
+    .title-col {
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: var(--color-primary-dark);
+      line-height: 1.6;
+    }
+
+    .reading-col {
+      font-size: 14px;
+      color: var(--color-muted);
+      margin-top: 2px;
+    }
+
+    .reading-col strong {
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+
+    .highlight-row {
+      border-color: rgba(212, 175, 55, 0.8);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.28);
+      background:
+        radial-gradient(circle at 5% 0%, rgba(250, 250, 249, 0.8), transparent 50%),
+        radial-gradient(circle at 100% 100%, rgba(248, 250, 252, 0.6), transparent 50%),
+        #ffffff;
+    }
+
+    .today-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      padding: 3px 8px;
+      margin-left: 6px;
+      background: linear-gradient(135deg, var(--color-gold), #fcd34d);
+      color: #111827;
+      border-radius: 999px;
+      font-weight: 600;
+      box-shadow: 0 0 0 1px rgba(202, 138, 4, 0.4),
+        0 8px 20px rgba(202, 138, 4, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .footer {
+      margin-top: 26px;
+      font-size: 11px;
+      color: var(--color-muted);
+      text-align: center;
+    }
+
+    .footer span {
+      color: var(--color-primary);
+      font-weight: 500;
+    }
+
+    @media (min-width: 640px) {
+      .page {
+        padding: 22px 20px 44px;
+      }
+
+      .header {
+        padding: 28px 20px 30px;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
+
+      .sub-title {
+        font-size: 15px;
+      }
+
+      .notice-box {
+        padding: 22px 22px 18px;
+      }
+
+      .notice-title {
+        font-size: 19px;
+      }
+
+      .notice-content,
+      .notice-empty {
+        font-size: 15px;
+      }
+
+      .schedule-card {
+        padding: 14px 16px 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div class="header-inner">
+        <div class="title-badge">
+          <span class="title-badge-dot"></span>
+          울산교회
+        </div>
+        <h1>33기 제자훈련 일정표</h1>
+        <p class="sub-title">
+          <strong>2026년 3월 8일</strong>부터 <strong>11월 29일</strong>까지의 제자훈련 전체 일정
+        </p>
+        <div class="header-meta">
+        </div>
+      </div>
+    </header>
+
+    <div class="content-spacing"></div>
+
+    <!-- 이번 주 과제 박스 -->
+    <section class="notice-box" id="this-week-box">
+      <div class="notice-header-row">
+        <div class="notice-title">
+          이번 주 과제
+        </div>
+        <div class="today-pill" id="today-info"></div>
+      </div>
+      <div class="notice-content" id="this-week-content">
+        내용을 불러오는 중입니다...
+      </div>
+      <div class="small-info">
+        매주 주일을 기준으로, 그 주간의 제자훈련 교재와 읽을 책을 한눈에 볼 수 있어요.
+      </div>
+    </section>
+
+    <!-- 전체 일정 카드 리스트 -->
+    <section>
+      <div class="table-title">
+    </span>전체 일정
+      </div>
+
+      <!-- 3월 -->
+      <div class="month-section">
+        <div class="month-label">3월</div>
+        <div class="schedule-list">
+          <div class="schedule-card" data-date="2026-03-08">
+            <div class="schedule-header">
+              <div class="schedule-date">3/8 (주일)</div>
+              <div class="schedule-badge">오리엔테이션</div>
+            </div>
+            <div class="title-col">OT 및 큐티 워크숍</div>
+          </div>
+
+          <div class="schedule-card" data-date="2026-03-15">
+            <div class="schedule-header">
+              <div class="schedule-date">3/15 (주일)</div>
+              <div class="schedule-badge">1권. 온전한 제자의 기초</div>
+            </div>
+            <div class="title-col">
+              부록(48~53쪽) · 내 삶에 대한 자기 소개서 · 나의 신앙고백과 간증
+            </div>
+            <div class="reading-col">
+              <strong>읽을 책</strong> · 길
+            </div>
+          </div>
+
+          <div class="schedule-card" data-date="2026-03-22">
+            <div class="schedule-header">
+              <div class="schedule-date">3/22 (주일)</div>
+              <div class="schedule-badge">1권. 온전한 제자의 기초</div>
+            </div>
+            <div class="title-col">1과. 왜 온전한 제자인가?</div>
+            <div class="reading-col">
+              <strong>읽을 책</strong> · 온전론(31-78쪽), 늘 급한 일로 쫓기는 삶
+            </div>
+          </div>
+
+          <div class="schedule-card" data-date="2026-03-29">
+            <div class="schedule-header">
+              <div class="schedule-date">3/29 (주일)</div>
+              <div class="schedule-badge">1권. 온전한 제자의 기초</div>
+            </div>
+            <div class="title-col">2과. 온전함에 이르는 길, 십자가</div>
+            <div class="reading-col">
+              <strong>읽을 책</strong> · 온전론(129-154쪽), 내 마음 그리스도의 집
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4월 -->
+      <div class="month-section">
+        <div class="month-label">4월</div>
+        <div class="schedule-list">
+          <div class="schedule-card" data-date="2026-04-05">
+            <div class="schedule-header">
+              <div class="schedule-date">4/5 (주일)</div>
+              <div class="schedule-badge">1권. 온전한 제자의 기초</div>
+            </div>
+            <div class="title-col">3과. 성경은 영혼의 양식</div>
+          </div>
+
+          <div class="schedule-card" data-date="2026-04-12">
+            <div class="schedule-header">
+              <div class="schedule-date">4/12 (주일)</div>
+              <div class="schedule-badge">1권. 온전한 제자의 기초</div>
+            </div>
+            <div class="title-col">4과. 기도는 영혼의 호흡</div>
+          </div>
+
+          <div class="schedule-card" data-date="2026-04-19">
+            <div class="schedule-header">
+              <div class="schedule-date">4/19 (주일)</div>
+              <div class="schedule-badge">2권. 온전한 제자의 교리</div>
+            </div>
+            <div class="title-col">1과. 성경이란 무엇인가?</div>
+            <div class="reading-col">
+              <strong>읽을 책</strong> · 무엇을 기도할까
+            </div>
+          </div>
+
+          <div class="schedule-card" data-date="2026-04-26">
+            <div class="schedule-header">
+              <div class="schedule-date">4/26 (주일)</div>
+              <div class="schedule-badge">특별 일정</div>
+            </div>
+            <div class="title-col">소풍</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5월 -->
+      <div class="month-section">
+        <div class="month-label">5월</div>
+        <div class="schedule-list">
+          <div class="schedule-card" data-date="2026-05-03">
+            <div class="schedule-header">
+              <div class="schedule-date">5/3 (주일)</div>
+              <div class="schedule-badge">가정</div>
+            </div>
+            <div class="title-col">가정 섬김 주간</div>
+          </div>
+
+          <div class="schedule-card" data-date="2026-05-10">
+            <div class="schedule-header">
+              <div class="schedule-date">5/10 (주일)</div>
+              <div class="schedule-badge">2권. 온전한 제자의 교리</div>
+            </div>
+            <div class="title-col">2과. 하나님은 누구신가?</div>
+            <div class="reading-col">
+              <strong>읽을 책</strong> · 성경의 권위
+            </div>
+          </div>
+
+          <div class="schedule-card" data-date="2026-05-17">
+            <div class="schedule-header">
+              <div class="schedule-date">5/17 (주일)</div>
+              <div class="schedule-badge">2권. 온전한 제자의 교리</div>
+            </div>
+            <div class="title-col">3과. 성경이 말하는 인간이해</div>
+          </div>
+
+          <div class="schedule-card" data-date="2026-05-24">
+            <div class="schedule-header">
+              <div class="schedule-date">5/24 (주일)</div>
+              <div class="schedule-badge">2권. 온전한 제자의 교리</div>
+            </div>
+            <div class="title-col">4과. 유일한 구원자 예수 그리스도</div>
+          </div>
+
+          <div class="schedule-card" data-date="2026-05-31">
+            <div class="schedule-header">
+              <div class="schedule-date">5/31 (주일)</div>
+              <div class="schedule-badge">2권. 온전한 제자의 교리</div>
+            </div>
+            <div class="title-col">5과. 가장 위대한 선물, 구원</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6월 -->
+      <div class="month-section">
+        <div class="month-label">6월</div>
+        <div class="schedule-list">
+          <div class="schedule-card" data-date="2026-06-07">
+            <div class="schedule-header">
+              <div class="schedule-date">6/7 (주일)</div>
+              <div class="schedule-badge">2권. 온전한 제자의 교리</div>
+            </div>
+            <div class="title-col">5과. 가장 위대한 선물, 구원</div>
+            <div class="reading-col">
+              <strong>읽을 책</strong> · 기독교의 기본진리
+            </div>
+          </div>
+
+          <div class="schedule-card" data-date="2026-06-14">
+            <div class="schedule-header">
+              <div class="schedule-date">6/14 (주일)</div>
+              <div class="schedule-badge">2권. 온전한 제자의 교리</div>
+            </div>
+            <div class="title-col">6과. 성령 하나님</div>
+          </div>
+
+          <div class="schedule-card" data-date="2026-06-21">
+            <div class="schedule-header">
+              <div class="schedule-date">6/21 (주일)</div>
+              <div class="schedule-badge">2권. 온전한 제자의 교리</div>
+            </div>
+            <div class="title-col">7과. 종말론 이해</div>
+          </div>
+
+          <div class="schedule-card" data-date="2026-06-28">
+            <div class="schedule-header">
+              <div class="schedule-date">6/28 (주일)</div>
+              <div class="schedule-badge">2권. 온전한 제자의 교리</div>
+            </div>
+            <div class="title-col">8과. 사람에게는 진심으로 / 하나님께는 전심으로</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9월 -->
+      <div class="month-section">
+        <div class="month-label">9월</div>
+        <div class="schedule-list">
+          <div class="schedule-card" data-date="2026-09-06">
+            <div class="schedule-header">
+              <div class="schedule-date">9/6 (주일)</div>
+              <div class="schedule-badge">3권. 온전한 제자의 삶</div>
+            </div>
+            <div class="title-col">1과. 보냄받은 제자</div>
+            <div class="reading-col">
+              <strong>읽을 책</strong> · 고통에는 뜻이 있다
+            </div>
+          </div>
+
+          <div class="schedule-card" data-date="2026-09-13">
+            <div class="schedule-header">
+              <div class="schedule-date">9/13 (주일)</div>
+              <div class="schedule-badge">3권. 온전한 제자의 삶</div>
+            </div>
+            <div class="title-col">2과. 제자의 온전한 생각 : 세계관</div>
+            <div class="reading-col">
+              <strong>읽을 책</strong> · 상한 감정의 치유
+            </div>
+          </div>
+
+          <div class="schedule-card" data-date="2026-09-20">
+            <div class="schedule-header">
+              <div class="schedule-date">9/20 (주일)</div>
+              <div class="schedule-badge">3권. 온전한 제자의 삶</div>
+            </div>
+            <div class="title-col">3과. 제자의 온전한 감정</div>
+          </div>
+
+          <div class="schedule-card" data-date="2026-09-27">
+            <div class="schedule-header">
+              <div class="schedule-date">9/27 (주일)</div>
+              <div class="schedule-badge">가정</div>
+            </div>
+            <div class="title-col">가정 섬김 주간 (추석)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10월 -->
+      <div class="month-section">
+        <div class="month-label">10월</div>
+        <div class="schedule-list">
+          <div class="schedule-card" data-date="2026-10-04">
+            <div class="schedule-header">
+              <div class="schedule-date">10/4 (주일)</div>
+              <div class="schedule-badge">3권. 온전한 제자의 삶</div>
+            </div>
+            <div class="title-col">4과. 제자의 온전한 관계</div>
+          </div>
+
+          <div class="schedule-card" data-date="2026-10-11">
+            <div class="schedule-header">
+              <div class="schedule-date">10/11 (주일)</div>
+              <div class="schedule-badge">3권. 온전한 제자의 삶</div>
+            </div>
+            <div class="title-col">5과. 제자의 온전한 행실 1: 언어생활</div>
+          </div>
+
+          <div class="schedule-card" data-date="2026-10-18">
+            <div class="schedule-header">
+              <div class="schedule-date">10/18 (주일)</div>
+              <div class="schedule-badge">3권. 온전한 제자의 삶</div>
+            </div>
+            <div class="title-col">6과. 제자의 온전한 행실 2: 돈과 재물</div>
+          </div>
+
+          <div class="schedule-card" data-date="2026-10-25">
+            <div class="schedule-header">
+              <div class="schedule-date">10/25 (주일)</div>
+              <div class="schedule-badge">특별 일정</div>
+            </div>
+            <div class="title-col">생명·사랑·나눔 축제</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11월 -->
+      <div class="month-section">
+        <div class="month-label">11월</div>
+        <div class="schedule-list">
+          <div class="schedule-card" data-date="2026-11-01">
+            <div class="schedule-header">
+              <div class="schedule-date">11/1 (주일)</div>
+              <div class="schedule-badge">3권. 온전한 제자의 삶</div>
+            </div>
+            <div class="title-col">7과. 제자의 온전한 예배</div>
+          </div>
+
+          <div class="schedule-card" data-date="2026-11-08">
+            <div class="schedule-header">
+              <div class="schedule-date">11/8 (주일)</div>
+              <div class="schedule-badge">3권. 온전한 제자의 삶</div>
+            </div>
+            <div class="title-col">8, 9과. 제자의 온전한 가정 1, 2</div>
+            <div class="reading-col">
+              <strong>읽을 책</strong> · 5가지 사랑의 언어
+            </div>
+          </div>
+
+          <div class="schedule-card" data-date="2026-11-15">
+            <div class="schedule-header">
+              <div class="schedule-date">11/15 (주일)</div>
+              <div class="schedule-badge">3권. 온전한 제자의 삶</div>
+            </div>
+            <div class="title-col">10과. 제자의 온전한 일과 일터</div>
+            <div class="reading-col">
+              <strong>읽을 책</strong> · 그리스도인과 일
+            </div>
+          </div>
+
+          <div class="schedule-card" data-date="2026-11-22">
+            <div class="schedule-header">
+              <div class="schedule-date">11/22 (주일)</div>
+              <div class="schedule-badge">3권. 온전한 제자의 삶</div>
+            </div>
+            <div class="title-col">11과. 제자의 온전한 선교</div>
+          </div>
+
+          <div class="schedule-card" data-date="2026-11-29">
+            <div class="schedule-header">
+              <div class="schedule-date">11/29 (주일)</div>
+              <div class="schedule-badge">3권. 온전한 제자의 삶</div>
+            </div>
+            <div class="title-col">12과. 십자가를 지는 길, 자기부인</div>
+            <div class="reading-col">
+              <strong>읽을 책</strong> · 온전론(155-176쪽)
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      <span>33기 제자훈련</span> · 2026년 주일 제자훈련 전체 일정
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      // 표에 입력한 일정을 자바스크립트용 데이터로도 보관
+      const schedules = [
+        { date: "2026-03-08", book: "", title: "OT 및 큐티 워크숍", reading: "" },
+        {
+          date: "2026-03-15",
+          book: "1권. 온전한 제자의 기초",
+          title: "부록(48~53쪽) / 내 삶에 대한 자기 소개서 / 나의 신앙고백과 간증",
+          reading: "길",
+        },
+        {
+          date: "2026-03-22",
+          book: "1권. 온전한 제자의 기초",
+          title: "1과. 왜 온전한 제자인가?",
+          reading: "온전론(31-78쪽), 늘 급한 일로 쫓기는 삶",
+        },
+        {
+          date: "2026-03-29",
+          book: "1권. 온전한 제자의 기초",
+          title: "2과. 온전함에 이르는 길, 십자가",
+          reading: "온전론(129-154쪽), 내 마음 그리스도의 집",
+        },
+        {
+          date: "2026-04-05",
+          book: "1권. 온전한 제자의 기초",
+          title: "3과. 성경은 영혼의 양식",
+          reading: "",
+        },
+        {
+          date: "2026-04-12",
+          book: "1권. 온전한 제자의 기초",
+          title: "4과. 기도는 영혼의 호흡",
+          reading: "",
+        },
+        {
+          date: "2026-04-19",
+          book: "2권. 온전한 제자의 교리",
+          title: "1과. 성경이란 무엇인가?",
+          reading: "무엇을 기도할까",
+        },
+        { date: "2026-04-26", book: "", title: "소풍", reading: "" },
+        { date: "2026-05-03", book: "", title: "가정 섬김 주간", reading: "" },
+        {
+          date: "2026-05-10",
+          book: "2권. 온전한 제자의 교리",
+          title: "2과. 하나님은 누구신가?",
+          reading: "성경의 권위",
+        },
+        {
+          date: "2026-05-17",
+          book: "2권. 온전한 제자의 교리",
+          title: "3과. 성경이 말하는 인간이해",
+          reading: "",
+        },
+        {
+          date: "2026-05-24",
+          book: "2권. 온전한 제자의 교리",
+          title: "4과. 유일한 구원자 예수 그리스도",
+          reading: "",
+        },
+        {
+          date: "2026-05-31",
+          book: "2권. 온전한 제자의 교리",
+          title: "5과. 가장 위대한 선물, 구원",
+          reading: "",
+        },
+        {
+          date: "2026-06-07",
+          book: "2권. 온전한 제자의 교리",
+          title: "5과. 가장 위대한 선물, 구원",
+          reading: "기독교의 기본진리",
+        },
+        {
+          date: "2026-06-14",
+          book: "2권. 온전한 제자의 교리",
+          title: "6과. 성령 하나님",
+          reading: "",
+        },
+        {
+          date: "2026-06-21",
+          book: "2권. 온전한 제자의 교리",
+          title: "7과. 종말론 이해",
+          reading: "",
+        },
+        {
+          date: "2026-06-28",
+          book: "2권. 온전한 제자의 교리",
+          title: "8과. 사람에게는 진심으로 / 하나님께는 전심으로",
+          reading: "",
+        },
+        {
+          date: "2026-09-06",
+          book: "3권. 온전한 제자의 삶",
+          title: "1과. 보냄받은 제자",
+          reading: "고통에는 뜻이 있다",
+        },
+        {
+          date: "2026-09-13",
+          book: "3권. 온전한 제자의 삶",
+          title: "2과. 제자의 온전한 생각 : 세계관",
+          reading: "상한 감정의 치유",
+        },
+        {
+          date: "2026-09-20",
+          book: "3권. 온전한 제자의 삶",
+          title: "3과. 제자의 온전한 감정",
+          reading: "",
+        },
+        {
+          date: "2026-09-27",
+          book: "",
+          title: "가정 섬김 주간 (추석)",
+          reading: "",
+        },
+        {
+          date: "2026-10-04",
+          book: "3권. 온전한 제자의 삶",
+          title: "4과. 제자의 온전한 관계",
+          reading: "",
+        },
+        {
+          date: "2026-10-11",
+          book: "3권. 온전한 제자의 삶",
+          title: "5과. 제자의 온전한 행실 1: 언어생활",
+          reading: "",
+        },
+        {
+          date: "2026-10-18",
+          book: "3권. 온전한 제자의 삶",
+          title: "6과. 제자의 온전한 행실 2: 돈과 재물",
+          reading: "",
+        },
+        {
+          date: "2026-10-25",
+          book: "",
+          title: "생명·사랑·나눔 축제",
+          reading: "",
+        },
+        {
+          date: "2026-11-01",
+          book: "3권. 온전한 제자의 삶",
+          title: "7과. 제자의 온전한 예배",
+          reading: "",
+        },
+        {
+          date: "2026-11-08",
+          book: "3권. 온전한 제자의 삶",
+          title: "8, 9과. 제자의 온전한 가정 1, 2",
+          reading: "5가지 사랑의 언어",
+        },
+        {
+          date: "2026-11-15",
+          book: "3권. 온전한 제자의 삶",
+          title: "10과. 제자의 온전한 일과 일터",
+          reading: "그리스도인과 일",
+        },
+        {
+          date: "2026-11-22",
+          book: "3권. 온전한 제자의 삶",
+          title: "11과. 제자의 온전한 선교",
+          reading: "-",
+        },
+        {
+          date: "2026-11-29",
+          book: "3권. 온전한 제자의 삶",
+          title: "12과. 십자가를 지는 길, 자기부인",
+          reading: "온전론(155-176쪽)",
+        },
+      ];
+
+      // 오늘 날짜 정보
+      const today = new Date();
+      const todayStr =
+        today.getFullYear() +
+        "-" +
+        String(today.getMonth() + 1).padStart(2, "0") +
+        "-" +
+        String(today.getDate()).padStart(2, "0");
+
+      // "이번 주" 계산: 각 일정 날짜(주일)를 기준으로 그 주 월요일~일요일 사이에 오늘이 들어가면 해당 일정이 "이번 주"
+      function findThisWeekSchedule() {
+        // 날짜 문자열 -> Date 객체
+        function toDate(dateStr) {
+          const [y, m, d] = dateStr.split("-").map(Number);
+          return new Date(y, m - 1, d);
+        }
+
+        // 주일(일요일)을 기준으로, 그 주의 월요일~일요일 범위를 구함
+        function getWeekRangeSundayBased(sundayDate) {
+          const sun = new Date(sundayDate);
+          // 일요일(0) 기준으로 월요일은 -6일, 일요일은 0일
+          const day = sun.getDay(); // 0(일)~6(토)
+          // 일정은 모두 주일이므로 day는 항상 0일 것임
+          const monday = new Date(sun);
+          monday.setDate(sun.getDate() - 6);
+
+          const sunday = new Date(sun);
+          // 이미 주일이므로 그대로
+
+          // 시/분/초 제거
+          monday.setHours(0, 0, 0, 0);
+          sunday.setHours(23, 59, 59, 999);
+          return { start: monday, end: sunday };
+        }
+
+        const todayOnly = new Date(
+          today.getFullYear(),
+          today.getMonth(),
+          today.getDate()
+        );
+
+        // 일정 순서대로 확인, 오늘이 해당 주간 범위 안에 들어가면 그 일정 반환
+        for (const s of schedules) {
+          const d = toDate(s.date);
+          const { start, end } = getWeekRangeSundayBased(d);
+          if (todayOnly >= start && todayOnly <= end) {
+            return s;
+          }
+        }
+        return null;
+      }
+
+      const thisWeek = findThisWeekSchedule();
+      const contentEl = document.getElementById("this-week-content");
+      const todayInfoEl = document.getElementById("today-info");
+
+      // 오늘 날짜 안내 문구
+      const weekdayNames = ["일", "월", "화", "수", "목", "금", "토"];
+      const weekday = weekdayNames[today.getDay()];
+      todayInfoEl.textContent =
+        today.getFullYear() +
+        "년 " +
+        (today.getMonth() + 1) +
+        "월 " +
+        today.getDate() +
+        "일 (" +
+        weekday +
+        ")";
+
+      if (thisWeek) {
+        // 이번 주 과제 내용 표시
+        // thisWeek.date는 해당 주일(일요일) 날짜이므로, 그 주간의 월요일~일요일 범위를 계산
+        const sundayDate = new Date(thisWeek.date);
+        const mondayDate = new Date(sundayDate);
+        mondayDate.setDate(sundayDate.getDate() - 6);
+
+        function formatMD(date) {
+          return date.getMonth() + 1 + "/" + date.getDate();
+        }
+
+        const weekRangeText = formatMD(mondayDate) + " ~ " + formatMD(sundayDate);
+
+        contentEl.innerHTML =
+          "<div><strong>" +
+          weekRangeText +
+          " 주간</strong></div>" +
+          (thisWeek.book
+            ? "<div style='margin-top:6px;'><strong>교재:</strong> " +
+              thisWeek.book +
+              "</div>"
+            : "") +
+          (thisWeek.title
+            ? "<div style='margin-top:6px;'><strong>제목:</strong> " +
+              thisWeek.title +
+              "</div>"
+            : "") +
+          (thisWeek.reading
+            ? "<div style='margin-top:6px;'><strong>읽을 책:</strong> " +
+              thisWeek.reading +
+              "</div>"
+            : "");
+
+        // 아래 카드 리스트에서 해당 주일 카드 하이라이트
+        const card = document.querySelector(
+          '.schedule-card[data-date="' + thisWeek.date + '"]'
+        );
+        if (card) {
+          card.classList.add("highlight-row");
+          const dateEl = card.querySelector(".schedule-date");
+          if (dateEl) {
+            const badge = document.createElement("span");
+            badge.className = "today-badge";
+            badge.textContent = "이번 주";
+            dateEl.appendChild(badge);
+          }
+        }
+      } else {
+        // 2026년 제자훈련 기간 밖일 때
+        contentEl.classList.add("notice-empty");
+        contentEl.textContent =
+          "지금은 2026년 제자훈련 일정 기간(3~11월) 밖입니다. 일정이 없습니다.";
+      }
+    })();
+  </script>
+</body>
+</html>
+
