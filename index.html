@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -397,6 +398,39 @@
         padding: 14px 16px 13px;
       }
     }
+/* 새로 추가: 이번 주 암송 말씀 카드 */
+.memory-box {
+      background-color: #f0fdfa; /* 세련된 연한 청록색 바탕 */
+      border: 1px solid #ccfbf1;
+      border-radius: var(--radius-xl);
+      padding: 24px 20px;
+      margin-bottom: 22px;
+      box-shadow: 0 10px 25px rgba(13, 148, 136, 0.1);
+    }
+
+    .memory-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #0f766e;
+      margin-bottom: 12px;
+    }
+
+    .memory-verse-text {
+  font-size: 50px !important; 
+  font-weight: 500;
+  color: #115e59;
+  line-height: 1.6;
+  word-break: keep-all;
+}
+
+    .memory-reference {
+      font-size: 15px;
+      color: #0d9488;
+      font-weight: 600;
+      margin-top: 10px;
+      display: block;
+    }
+
   </style>
 </head>
 <body>
@@ -421,9 +455,7 @@
     <!-- 이번 주 과제 박스 -->
     <section class="notice-box" id="this-week-box">
       <div class="notice-header-row">
-        <div class="notice-title">
-          이번 주 과제
-        </div>
+        <div class="notice-title">이번 주 과제</div>
         <div class="today-pill" id="today-info"></div>
       </div>
       <div class="notice-content" id="this-week-content">
@@ -434,12 +466,15 @@
       </div>
     </section>
 
-    <!-- 전체 일정 카드 리스트 -->
-    <section>
-      <div class="table-title">
-    </span>전체 일정
-      </div>
+    <section class="memory-box" id="memory-box">
+      <div class="memory-title">이번 주 암송 말씀</div>
+      <div id="memory-content"></div>
+    </section>
 
+    <section>
+      <div class="table-title">전체 일정</div>
+      <div id="schedule-list"></div>
+    </section>
       <!-- 3월 -->
       <div class="month-section">
         <div class="month-label">3월</div>
@@ -772,9 +807,6 @@
           book: "",
           title: "OT 및 큐티 워크숍",
           reading: "",
-          // 테스트용: 1과와 동일한 말씀을 이번 주에도 출력
-          memoryVerse: "엡 4:13, 슥 4:6b",
-          qtPassage: "엡 4:13~16",
           memoryText:
             "에베소서 4:13 - 우리가 다 하나님의 아들을 믿는 것과 아는 일에 하나가 되어 온전한 사람을 이루어 그리스도의 장성한 분량이 충만한 데까지 이르리니<br />" +
             "스가랴 4:6(하반절) - 만군의 여호와께서 말씀하시되 이는 힘으로 되지 아니하며 능력으로 되지 아니하고 오직 나의 영으로 되느니라",
@@ -784,20 +816,13 @@
           book: "1권. 온전한 제자의 기초",
           title: "부록(48~53쪽) / 내 삶에 대한 자기 소개서 / 나의 신앙고백과 간증",
           reading: "길",
-          // 확인용: 다음 주(1과)와 동일한 암송 구절을 미리 노출
-          memoryVerse: "엡 4:13, 슥 4:6b",
-          qtPassage: "엡 4:13~16",
-          memoryText:
-            "에베소서 4:13 - 우리가 다 하나님의 아들을 믿는 것과 아는 일에 하나가 되어 온전한 사람을 이루어 그리스도의 장성한 분량이 충만한 데까지 이르리니<br />" +
-            "스가랴 4:6(하반절) - 만군의 여호와께서 말씀하시되 이는 힘으로 되지 아니하며 능력으로 되지 아니하고 오직 나의 영으로 되느니라",
-        },
+          memoryText:""
+         },
         {
           date: "2026-03-22",
           book: "1권. 온전한 제자의 기초",
           title: "1과. 왜 온전한 제자인가?",
           reading: "온전론(31-78쪽), 늘 급한 일로 쫓기는 삶",
-          memoryVerse: "엡 4:13, 슥 4:6b",
-          qtPassage: "엡 4:13~16",
           memoryText:
             "에베소서 4:13 - 우리가 다 하나님의 아들을 믿는 것과 아는 일에 하나가 되어 온전한 사람을 이루어 그리스도의 장성한 분량이 충만한 데까지 이르리니<br />" +
             "스가랴 4:6(하반절) - 만군의 여호와께서 말씀하시되 이는 힘으로 되지 아니하며 능력으로 되지 아니하고 오직 나의 영으로 되느니라",
@@ -807,8 +832,6 @@
           book: "1권. 온전한 제자의 기초",
           title: "2과. 온전함에 이르는 길, 십자가",
           reading: "온전론(129-154쪽), 내 마음 그리스도의 집",
-          memoryVerse: "갈 6:14, 막 10:45",
-          qtPassage: "막 10:35~45",
           memoryText:
             "갈라디아서 6:14 - 그러나 내게는 우리 주 예수 그리스도의 십자가 외에 결코 자랑할 것이 없으니 그리스도로 말미암아 세상이 나를 대하여 십자가에 못 박히고 내가 또한 세상을 대하여 그러하니라<br />" +
             "마가복음 10:45 - 인자가 온 것은 섬김을 받으려 함이 아니라 도리어 섬기려 하고 자기 목숨을 많은 사람의 대속물로 주려 함이니라",
@@ -818,8 +841,6 @@
           book: "1권. 온전한 제자의 기초",
           title: "3과. 성경은 영혼의 양식",
           reading: "",
-          memoryVerse: "마 4:4, 수 1:8",
-          qtPassage: "사 55:1~5",
           memoryText:
             "마태복음 4:4 - 예수께서 대답하여 이르시되 기록되었으되 사람이 떡으로만 살 것이 아니요 하나님의 입으로부터 나오는 모든 말씀으로 살 것이라 하였느니라 하시니<br />" +
             "여호수아 1:8 - 이 율법책을 네 입에서 떠나지 말게 하며 주야로 그것을 묵상하여 그 안에 기록된 대로 다 지켜 행하라 그리하면 네 길이 평탄하게 될 것이며 네가 형통하리라",
@@ -829,8 +850,6 @@
           book: "1권. 온전한 제자의 기초",
           title: "4과. 기도는 영혼의 호흡",
           reading: "",
-          memoryVerse: "마 6:33, 빌 4:6~7",
-          qtPassage: "마 6:5~8",
           memoryText:
             "마태복음 6:33 - 그런즉 너희는 먼저 그의 나라와 그의 의를 구하라 그리하면 이 모든 것을 너희에게 더하시리라<br />" +
             "빌립보서 4:6~7 - 아무 것도 염려하지 말고 다만 모든 일에 기도와 간구로, 너희 구할 것을 감사함으로 하나님께 아뢰라 그리하면 모든 지각에 뛰어난 하나님의 평강이 그리스도 예수 안에서 너희 마음과 생각을 지키시리라",
@@ -840,8 +859,6 @@
           book: "2권. 온전한 제자의 교리",
           title: "1과. 성경이란 무엇인가?",
           reading: "무엇을 기도할까",
-          memoryVerse: "딤후 3:16, 벧후 1:21",
-          qtPassage: "마 5:17~20",
         },
         { date: "2026-04-26", book: "", title: "소풍", reading: "" },
         { date: "2026-05-03", book: "", title: "가정 섬김 주간", reading: "" },
@@ -850,24 +867,18 @@
           book: "2권. 온전한 제자의 교리",
           title: "2과. 하나님은 누구신가?",
           reading: "성경의 권위",
-          memoryVerse: "사 43:1, 대상 29:11",
-          qtPassage: "대상 29:10~14",
         },
         {
           date: "2026-05-17",
           book: "2권. 온전한 제자의 교리",
           title: "3과. 성경이 말하는 인간이해",
           reading: "",
-          memoryVerse: "롬 3:23, 고후 5:17",
-          qtPassage: "창 1:24~28",
         },
         {
           date: "2026-05-24",
           book: "2권. 온전한 제자의 교리",
           title: "4과. 유일한 구원자 예수 그리스도",
           reading: "",
-          memoryVerse: "롬 4:25, 계 3:20",
-          qtPassage: "골 1:15~23",
         },
         {
           date: "2026-05-31",
@@ -875,63 +886,48 @@
           title: "5과. 가장 위대한 선물, 구원",
           reading: "",
           memoryVerse: "엡 2:8~9, 딛 3:5",
-          qtPassage: "엡 2:1~10",
         },
         {
           date: "2026-06-07",
           book: "2권. 온전한 제자의 교리",
           title: "5과. 가장 위대한 선물, 구원",
           reading: "기독교의 기본진리",
-          memoryVerse: "엡 2:8~9, 딛 3:5",
-          qtPassage: "엡 2:1~10",
         },
         {
           date: "2026-06-14",
           book: "2권. 온전한 제자의 교리",
           title: "6과. 성령 하나님",
           reading: "",
-          memoryVerse: "고전 3:16, 갈 5:22~23",
-          qtPassage: "요 3:1~8",
         },
         {
           date: "2026-06-21",
           book: "2권. 온전한 제자의 교리",
           title: "7과. 종말론 이해",
           reading: "",
-          memoryVerse: "마 24:14, 히 2:18",
-          qtPassage: "마 24:34~44",
         },
         {
           date: "2026-06-28",
           book: "2권. 온전한 제자의 교리",
           title: "8과. 사람에게는 진심으로 / 하나님께는 전심으로",
           reading: "",
-          memoryVerse: "롬 5:8, 요 13:34~35",
-          qtPassage: "막 12:28~34",
         },
         {
           date: "2026-09-06",
           book: "3권. 온전한 제자의 삶",
           title: "1과. 보냄받은 제자",
           reading: "고통에는 뜻이 있다",
-          memoryVerse: "마 4:19, 요 20:21",
-          qtPassage: "눅 9:28~33",
         },
         {
           date: "2026-09-13",
           book: "3권. 온전한 제자의 삶",
           title: "2과. 제자의 온전한 생각 : 세계관",
           reading: "상한 감정의 치유",
-          memoryVerse: "롬 11:36, 엡 4:22~24",
-          qtPassage: "마 5:1~12",
         },
         {
           date: "2026-09-20",
           book: "3권. 온전한 제자의 삶",
           title: "3과. 제자의 온전한 감정",
           reading: "",
-          memoryVerse: "창 50:20, 엡 4:32",
-          qtPassage: "창 50:15~21",
         },
         {
           date: "2026-09-27",
@@ -944,24 +940,18 @@
           book: "3권. 온전한 제자의 삶",
           title: "4과. 제자의 온전한 관계",
           reading: "",
-          memoryVerse: "요일 3:18, 약 2:17",
-          qtPassage: "눅 10:25~37",
         },
         {
           date: "2026-10-11",
           book: "3권. 온전한 제자의 삶",
           title: "5과. 제자의 온전한 행실 1: 언어생활",
           reading: "",
-          memoryVerse: "잠 4:23, 엡 4:29",
-          qtPassage: "눅 6:43~45",
         },
         {
           date: "2026-10-18",
           book: "3권. 온전한 제자의 삶",
           title: "6과. 제자의 온전한 행실 2: 돈과 재물",
           reading: "",
-          memoryVerse: "마 6:24, 빌 4:11",
-          qtPassage: "눅 12:13~21",
         },
         {
           date: "2026-10-25",
@@ -974,40 +964,30 @@
           book: "3권. 온전한 제자의 삶",
           title: "7과. 제자의 온전한 예배",
           reading: "",
-          memoryVerse: "요 4:24, 롬 12:1",
-          qtPassage: "요 4:19~26",
         },
         {
           date: "2026-11-08",
           book: "3권. 온전한 제자의 삶",
           title: "8, 9과. 제자의 온전한 가정 1, 2",
           reading: "5가지 사랑의 언어",
-          memoryVerse: "창 2:18, 엡 5:21 / 히 11:6, 히 12:2",
-          qtPassage: "창 2:18~25 / 히 11:32~38",
         },
         {
           date: "2026-11-15",
           book: "3권. 온전한 제자의 삶",
           title: "10과. 제자의 온전한 일과 일터",
           reading: "그리스도인과 일",
-          memoryVerse: "창 1:28, 마 5:16",
-          qtPassage: "마 25:14~30",
         },
         {
           date: "2026-11-22",
           book: "3권. 온전한 제자의 삶",
           title: "11과. 제자의 온전한 선교",
           reading: "-",
-          memoryVerse: "행 1:8, 딤후 4:2",
-          qtPassage: "요 17:15~19",
         },
         {
           date: "2026-11-29",
           book: "3권. 온전한 제자의 삶",
           title: "12과. 십자가를 지는 길, 자기부인",
           reading: "온전론(155-176쪽)",
-          memoryVerse: "골 1:28, 고후 10:5",
-          qtPassage: "눅 14:25~33",
         },
       ];
 
@@ -1093,7 +1073,9 @@
 
         const weekRangeText = formatMD(mondayDate) + " ~ " + formatMD(sundayDate);
 
-        contentEl.innerHTML =
+// 기존의 길었던 contentEl.innerHTML 전체를 아래 코드로 교체하세요.
+        
+contentEl.innerHTML =
           "<div><strong>" +
           weekRangeText +
           " 주간</strong></div>" +
@@ -1111,22 +1093,21 @@
             ? "<div style='margin-top:6px;'><strong>읽을 책:</strong> " +
               thisWeek.reading +
               "</div>"
-            : "") +
-          (thisWeek.memoryVerse
-            ? "<div style='margin-top:10px; font-size:15px; font-weight:600;'><strong>성경 암송 구절:</strong> " +
-              thisWeek.memoryVerse +
-              "</div>"
-            : "") +
-          (thisWeek.qtPassage
-            ? "<div style='margin-top:6px; font-size:15px; font-weight:600;'><strong>훈련큐티 본문:</strong> " +
-              thisWeek.qtPassage +
-              "</div>"
-            : "") +
-          (thisWeek.memoryText
-            ? "<div style='margin-top:10px; font-size:15px; font-weight:600;'><strong>암송 말씀 전문:</strong><br />" +
-              thisWeek.memoryText +
-              "</div>"
             : "");
+
+        // 암송 구절 카드 제어 (새로 추가)
+        const memoryBox = document.getElementById("memory-box");
+        const memoryContent = document.getElementById("memory-content");
+        
+        if (thisWeek.memoryVerse) {
+          memoryBox.style.display = "block";
+          memoryContent.innerHTML =
+            "<div class='memory-verse-text'>" + 
+            (thisWeek.memoryText ? thisWeek.memoryText : "") + 
+            "</div>" +
+            "<div class='memory-reference'>" + thisWeek.memoryVerse + "</div>";
+        } else {
+        }
 
         // 아래 카드 리스트에서 해당 주일 카드 하이라이트
         const card = document.querySelector(
